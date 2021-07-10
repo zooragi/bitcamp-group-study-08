@@ -1,4 +1,4 @@
-# group-study
+# bitcamp-group-study
 ## 7월 둘째주 목표
 - 대희 : 자바의 정석 310p 시작 ~ 끝까지
  ---
