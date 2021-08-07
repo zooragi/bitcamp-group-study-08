@@ -37,8 +37,9 @@ public class MenuGroup extends Menu{
 				System.out.printf("%d. %s\n",i+1,menus[i].title);
 			}
 			System.out.printf("0.%s\n",isPrevMenu);
-			System.out.println();
 			int menuNo = Prompt.inputInt("선택>");
+			System.out.println();
+
 			if(menuNo == 0) {
 				return;
 			}
