@@ -56,13 +56,12 @@ public class NodeList {
 					preNode.next = node.next;
 					node.next = null;	
 				}
-				
+				size--;
+				return true;
 			}
 			preNode = node;
 			node = node.next;
-			
 		}
-		size--;
 		return true;
 	}
 	
