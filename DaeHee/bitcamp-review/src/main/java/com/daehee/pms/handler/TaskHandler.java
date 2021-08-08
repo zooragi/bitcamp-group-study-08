@@ -7,7 +7,11 @@ import com.daehee.pms.util.Prompt;
 public class TaskHandler {
 
 	public MemberHandler memberHandler;
-	NodeList taskList = new NodeList();
+	List taskList = new NodeList();
+	public TaskHandler(List list, MemberHandler memberHandler) {
+		this.taskList =list;
+		this.memberHandler = memberHandler;
+	}
 
 	public void add() {
 		System.out.println("[작업 등록]");

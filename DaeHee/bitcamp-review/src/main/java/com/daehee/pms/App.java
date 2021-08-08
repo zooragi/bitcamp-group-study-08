@@ -1,6 +1,8 @@
 package com.daehee.pms;
 
+import com.daehee.pms.handler.ArrayList;
 import com.daehee.pms.handler.BoardHandler;
+import com.daehee.pms.handler.List;
 import com.daehee.pms.handler.MemberHandler;
 import com.daehee.pms.handler.ProjectHandler;
 import com.daehee.pms.handler.TaskHandler;
@@ -10,147 +12,133 @@ import com.daehee.pms.util.Prompt;
 
 public class App {
 
-  public static void main(String[] args) {
+	public static void main(String[] args) {
+		List arrayList = new ArrayList();
+		
+		BoardHandler boardHandler = new BoardHandler(arrayList);
+		MemberHandler memberHandler = new MemberHandler(arrayList);
+		ProjectHandler projectHandler = new ProjectHandler(arrayList,memberHandler);
+		TaskHandler taskHandler = new TaskHandler(arrayList,memberHandler);
 
-    BoardHandler boardHandler = new BoardHandler();
-    MemberHandler memberHandler = new MemberHandler();
-    ProjectHandler projectHandler = new ProjectHandler();
-    projectHandler.memberHandler = memberHandler;
-    TaskHandler taskHandler = new TaskHandler();
-    taskHandler.memberHandler = memberHandler;
+		MenuGroup main = new MenuGroup("메인");
+		main.setIsPrevMenu("종료");
 
-    MenuGroup main = new MenuGroup("메인");
-    main.setIsPrevMenu("종료");
-    
-    MenuGroup board = new MenuGroup("게시판");
-    board.add(new Menu("등록") {
-    	public void execute() {
-    		boardHandler.add();
-    	}
-    });
-    board.add(new Menu("목록") {
-    	public void execute() {
-    		boardHandler.list();
-    	}
-    });
-    board.add(new Menu("상세 정보") {
-    	public void execute() {
-    		boardHandler.detail();
-    	}
-    });
-    board.add(new Menu("업데이트") {
-    	public void execute() {
-    		boardHandler.update();
-    	}
-    });
-    board.add(new Menu("삭제") {
-    	public void execute() {
-    		boardHandler.delete();
-    	}
-    });
-    main.add(board);
-    
-    MenuGroup member = new MenuGroup("회원");
-    member.add(new Menu("등록") {
-    	public void execute() {
-    		memberHandler.add();
-    	}
-    });
-    member.add(new Menu("목록") {
-    	public void execute() {
-    		memberHandler.list();
-    	}
-    });
-    member.add(new Menu("상세 정보") {
-    	public void execute() {
-    		memberHandler.detail();
-    	}
-    });
-    member.add(new Menu("업데이트") {
-    	public void execute() {
-    		memberHandler.update();
-    	}
-    });
-    member.add(new Menu("삭제") {
-    	public void execute() {
-    		memberHandler.delete();
-    	}
-    });
-    main.add(member);
-    
-    MenuGroup project = new MenuGroup("프로젝트");
-    project.add(new Menu("등록") {
-    	public void execute() {
-    		projectHandler.add();
-    	}
-    });
-    project.add(new Menu("목록") {
-    	public void execute() {
-    		projectHandler.list();
-    	}
-    });
-    project.add(new Menu("상세 정보") {
-    	public void execute() {
-    		projectHandler.detail();
-    	}
-    });
-    project.add(new Menu("업데이트") {
-    	public void execute() {
-    		projectHandler.update();
-    	}
-    });
-    project.add(new Menu("삭제") {
-    	public void execute() {
-    		projectHandler.delete();
-    	}
-    });
-    main.add(project);
-    
-    MenuGroup task = new MenuGroup("작업");
-    task.add(new Menu("등록") {
-    	public void execute() {
-    		taskHandler.add();
-    	}
-    });
-    task.add(new Menu("목록") {
-    	public void execute() {
-    		taskHandler.list();
-    	}
-    });
-    task.add(new Menu("상세 정보") {
-    	public void execute() {
-    		taskHandler.detail();
-    	}
-    });
-    task.add(new Menu("업데이트") {
-    	public void execute() {
-    		taskHandler.update();
-    	}
-    });
-    task.add(new Menu("삭제") {
-    	public void execute() {
-    		taskHandler.delete();
-    	}
-    });
-    main.add(task);
-    
-    main.execute();
-    
-    
-    Prompt.close();
-    // Prompt 가 소유하고 관리하고 있는 자원을 닫으라고 명령한다. 
-    
-  }
+		MenuGroup board = new MenuGroup("게시판");
+		board.add(new Menu("등록") {
+			public void execute() {
+				boardHandler.add();
+			}
+		});
+		board.add(new Menu("목록") {
+			public void execute() {
+				boardHandler.list();
+			}
+		});
+		board.add(new Menu("상세 정보") {
+			public void execute() {
+				boardHandler.detail();
+			}
+		});
+		board.add(new Menu("업데이트") {
+			public void execute() {
+				boardHandler.update();
+			}
+		});
+		board.add(new Menu("삭제") {
+			public void execute() {
+				boardHandler.delete();
+			}
+		});
+		main.add(board);
+
+		MenuGroup member = new MenuGroup("회원");
+		member.add(new Menu("등록") {
+			public void execute() {
+				memberHandler.add();
+			}
+		});
+		member.add(new Menu("목록") {
+			public void execute() {
+				memberHandler.list();
+			}
+		});
+		member.add(new Menu("상세 정보") {
+			public void execute() {
+				memberHandler.detail();
+			}
+		});
+		member.add(new Menu("업데이트") {
+			public void execute() {
+				memberHandler.update();
+			}
+		});
+		member.add(new Menu("삭제") {
+			public void execute() {
+				memberHandler.delete();
+			}
+		});
+		main.add(member);
+
+		MenuGroup project = new MenuGroup("프로젝트");
+		project.add(new Menu("등록") {
+			public void execute() {
+				projectHandler.add();
+			}
+		});
+		project.add(new Menu("목록") {
+			public void execute() {
+				projectHandler.list();
+			}
+		});
+		project.add(new Menu("상세 정보") {
+			public void execute() {
+				projectHandler.detail();
+			}
+		});
+		project.add(new Menu("업데이트") {
+			public void execute() {
+				projectHandler.update();
+			}
+		});
+		project.add(new Menu("삭제") {
+			public void execute() {
+				projectHandler.delete();
+			}
+		});
+		main.add(project);
+
+		MenuGroup task = new MenuGroup("작업");
+		task.add(new Menu("등록") {
+			public void execute() {
+				taskHandler.add();
+			}
+		});
+		task.add(new Menu("목록") {
+			public void execute() {
+				taskHandler.list();
+			}
+		});
+		task.add(new Menu("상세 정보") {
+			public void execute() {
+				taskHandler.detail();
+			}
+		});
+		task.add(new Menu("업데이트") {
+			public void execute() {
+				taskHandler.update();
+			}
+		});
+		task.add(new Menu("삭제") {
+			public void execute() {
+				taskHandler.delete();
+			}
+		});
+		main.add(task);
+
+		main.execute();
+
+		Prompt.close();
+		// Prompt 가 소유하고 관리하고 있는 자원을 닫으라고 명령한다.
+
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

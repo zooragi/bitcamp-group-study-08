@@ -8,7 +8,11 @@ import com.daehee.pms.util.Prompt;
 
 public class ProjectHandler {
 	public MemberHandler memberHandler;
-	NodeList projectList = new NodeList();
+	List projectList = new NodeList();
+	public ProjectHandler(List list, MemberHandler memberHandler) {
+		this.projectList =list;
+		this.memberHandler = memberHandler;
+	}
 
 	public void add() {
 		System.out.println("[프로젝트 등록]");

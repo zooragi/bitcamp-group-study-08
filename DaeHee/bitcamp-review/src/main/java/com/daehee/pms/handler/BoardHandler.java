@@ -7,7 +7,10 @@ import com.daehee.pms.util.Prompt;
 
 public class BoardHandler {
 
-	NodeList boardList = new NodeList();
+	List boardList;
+	public BoardHandler(List list) {
+		this.boardList= list;
+	}
 
 	public void add() {
 		System.out.println("[새 게시글]");
