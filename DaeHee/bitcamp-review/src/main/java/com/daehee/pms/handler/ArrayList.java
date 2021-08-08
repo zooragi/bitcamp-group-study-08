@@ -1,7 +1,7 @@
 package com.daehee.pms.handler;
 
 
-public class ArrayList {
+public class ArrayList implements List{
 	static final int MAX_LENGTH = 5;
 
 	int size = 0;

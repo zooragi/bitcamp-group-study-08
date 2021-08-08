@@ -1,7 +1,7 @@
 package com.daehee.pms.handler;
 
 
-public class NodeList {
+public class NodeList implements List{
 	static class Node{
 		Object obj;
 		Node next;
