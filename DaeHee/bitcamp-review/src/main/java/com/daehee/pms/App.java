@@ -13,12 +13,15 @@ import com.daehee.pms.util.Prompt;
 public class App {
 
 	public static void main(String[] args) {
-		List arrayList = new ArrayList();
+		List boardList = new ArrayList();
+		List memberList = new ArrayList();
+		List projectList = new ArrayList();
+		List taskList = new ArrayList();
 		
-		BoardHandler boardHandler = new BoardHandler(arrayList);
-		MemberHandler memberHandler = new MemberHandler(arrayList);
-		ProjectHandler projectHandler = new ProjectHandler(arrayList,memberHandler);
-		TaskHandler taskHandler = new TaskHandler(arrayList,memberHandler);
+		BoardHandler boardHandler = new BoardHandler(boardList);
+		MemberHandler memberHandler = new MemberHandler(memberList);
+		ProjectHandler projectHandler = new ProjectHandler(projectList,memberHandler);
+		TaskHandler taskHandler = new TaskHandler(taskList,memberHandler);
 
 		MenuGroup main = new MenuGroup("메인");
 		main.setIsPrevMenu("종료");
