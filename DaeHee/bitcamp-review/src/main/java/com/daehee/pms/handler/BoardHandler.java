@@ -1,12 +1,13 @@
 package com.daehee.pms.handler;
 
 import java.sql.Date;
+
 import com.daehee.pms.domain.Board;
 import com.daehee.pms.util.Prompt;
 
 public class BoardHandler {
 
-	ArrayList boardList = new ArrayList();
+	NodeList boardList = new NodeList();
 
 	public void add() {
 		System.out.println("[새 게시글]");
@@ -18,7 +19,7 @@ public class BoardHandler {
 		board.content = Prompt.inputString("내용? ");
 		board.writer = Prompt.inputString("작성자? ");
 		board.registeredDate = new Date(System.currentTimeMillis());
-
+		
 		boardList.add(board);
 	}
 

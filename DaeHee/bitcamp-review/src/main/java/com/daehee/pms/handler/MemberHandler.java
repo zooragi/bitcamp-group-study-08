@@ -8,7 +8,7 @@ import com.daehee.pms.util.Prompt;
 
 public class MemberHandler {
 
-	ArrayList memberList = new ArrayList();
+	NodeList memberList = new NodeList();
 
 	public void add() {
 		System.out.println("[회원 등록]");
