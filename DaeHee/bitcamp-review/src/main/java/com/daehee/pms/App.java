@@ -4,6 +4,7 @@ import com.daehee.pms.handler.ArrayList;
 import com.daehee.pms.handler.BoardHandler;
 import com.daehee.pms.handler.List;
 import com.daehee.pms.handler.MemberHandler;
+import com.daehee.pms.handler.NodeList;
 import com.daehee.pms.handler.ProjectHandler;
 import com.daehee.pms.handler.TaskHandler;
 import com.daehee.pms.menu.Menu;
@@ -13,9 +14,9 @@ import com.daehee.pms.util.Prompt;
 public class App {
 
 	public static void main(String[] args) {
-		List boardList = new ArrayList();
+		List boardList = new NodeList();
 		List memberList = new ArrayList();
-		List projectList = new ArrayList();
+		List projectList = new NodeList();
 		List taskList = new ArrayList();
 		
 		BoardHandler boardHandler = new BoardHandler(boardList);
